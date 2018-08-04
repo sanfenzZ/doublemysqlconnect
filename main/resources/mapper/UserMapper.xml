@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mappper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.doubleidea.two.mapper.UserMapper">
+    <insert id="saveUser" parameterType="com.example.doubleidea.Person.User" >
+            INSERT INTO users(tid,username) VALUES(#{id},#{name})
+        </insert>
+    <select id="seletemap" parameterType="int" resultType="hashMap">
+        SELECT * from users where tid = #{id}
+    </select>
+    <select id="seleteperson" parameterType="int" resultType="com.example.doubleidea.Person.User">
+        SELECT * from users where tid = #{id}
+    </select>
+
+    <update id="modify" parameterType="com.example.doubleidea.Person.User">
+      UPDATE users set username=#{name} where tid=#{id}
+    </update>
+    <delete id="dele" parameterType="int">
+        delete from users where tid=#{id}
+    </delete>
+</mapper>
+
+
